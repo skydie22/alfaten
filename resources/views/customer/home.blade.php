@@ -54,7 +54,7 @@
                             </div>
                           </div>
 
-                            <div class="col col-2">
+                            <div class="col col-2 mb-2">
                                 <div class="card">
                                     <div class="card-header text-center">
                                         <img src="{{ asset('/img/'.$product->thumbnail) }}" alt="{{ $product->thumbnail }}" width="100px;">

@@ -18,7 +18,12 @@
 
     <style>
         s {
-            color: red;
+            color:red;
+        }
+
+        a.navbar-brand {
+            font-weight: bold;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -35,7 +40,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav ms-auto">
                         @yield('navbar')
                     </ul>
 

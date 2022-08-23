@@ -24,7 +24,7 @@ class FirstSeeder extends Seeder
 
         User::create([
             'name'=> 'rabbani',
-            'email' => 'h@gmail.com',
+            'email' => 'rabbani@gmail.com',
             'password'=> bcrypt('password'),
             'username'=> 'rabbani'
         ]);
