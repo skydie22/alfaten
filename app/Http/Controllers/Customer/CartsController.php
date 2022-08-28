@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartsController extends Controller
 {
@@ -19,7 +21,24 @@ class CartsController extends Controller
      */
     public function index()
     {
-        //
+        $carts = Transaction::where('user_id' , Auth::user()->id)->with('product')->get();
+        $cartTotal = Transaction::where('user_id',Auth::user()->id)->where('status' , 'unpaid')->get();
+        $jumlah = $cartTotal->sum('quantity');
+        if($jumlah > 99) {
+            $jumlah = "99+";
+        }
+
+        $total_harga = 0;
+
+        foreach($carts as $cart){
+            $total_harga += $cart->product->price;
+
+        }
+        
+        // dd($cart->product);
+        // dd($total_harga);
+
+        return view('customer.cart' ,  compact('carts' , 'total_harga' , 'jumlah'));
     }
 
     /**

@@ -47,15 +47,15 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                  <button type="submit" class="btn btn-primary">Add To Chart</button>
+                                  <button type="submit" class="btn btn-success">Add To Chart</button>
                                 </div>
                             </form>
                               </div>
                             </div>
                           </div>
 
-                            <div class="col col-2 mb-2">
-                                <div class="card">
+                            <div class="col col-2">
+                                <div class="card border-0">
                                     <div class="card-header text-center">
                                         <img src="{{ asset('/img/'.$product->thumbnail) }}" alt="{{ $product->thumbnail }}" width="100px;">
                                     </div>
@@ -67,8 +67,8 @@
                                             {!! $product->new_price !== $product->price ? "<s>$product->price</s>" : $product->price !!}
                                             {{ $product->new_price !== $product->price ? $product->new_price : '' }}
                                         </div>
-                                        <div class="d-grid gap-2">
-                                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id }}">Detail</button>
+                                        <div class="d-grid gap-2 mt-2">
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $product->id }}">Detail</button>
                                         </div>
                                     </div>
                                 </div>
