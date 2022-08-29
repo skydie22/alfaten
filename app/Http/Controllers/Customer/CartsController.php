@@ -31,7 +31,7 @@ class CartsController extends Controller
         $total_harga = 0;
 
         foreach($carts as $cart){
-            $total_harga += $cart->product->price;
+            $total_harga += $cart->product->price * $cart->quantity;
 
         }
         

@@ -53,11 +53,24 @@ class HomeController extends Controller
     }
 
     public function addToCart(Request $request) {
-        Transaction::create([
-            'product_id'=> $request->product_id,
-            'user_id'=> Auth::user()->id,
-            'quantity'=> $request->quantity,
-        ]);
+        $check = Transaction::where('product_id', $request->product_id)
+                            ->where('user_id', Auth::user()->id)
+                            ->where('status' , 'unpaid')
+                            ->first();
+
+        if ($check !== null) {
+            $transaction = Transaction::find($check->id)->update([
+                'quantity' => $check->quantity + $request->quantity
+            ]);
+        }
+        else {
+            Transaction::create([
+                'product_id'=> $request->product_id,
+                'user_id'=> Auth::user()->id,
+                'quantity'=> $request->quantity,
+            ]);
+        }
+
 
         return redirect()->back()->with('success','Berhasil Menambahkan produk kedalam Carts');
     }

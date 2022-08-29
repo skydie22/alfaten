@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-md-9 col-sm-12 mb-2">
         @foreach($carts as $cart)
-        <div class="card" style="width: 12rem; margin: 1rem">
+        {{-- <div class="card" style="width: 12rem; margin: 1rem">
             <div class="card-body">
                 <div class="card-header text-center">
                     <img src="{{ asset('/img/'. $cart->product->thumbnail) }}" alt="{{ $cart->thumbnail }}" width="100px;">
@@ -28,13 +28,32 @@
                     </div>
                 </div>
             </div>
+          </div> --}}
+          <div class="card mb-3 p-3" style="max-width: 50rem;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="{{ asset('/img/'. $cart->product->thumbnail) }}" class="card-img" alt="..." width="100px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>{{ $cart->product->name }}</strong>
+                  </h5>
+                  <p class="card-text">{{  $cart->product->price }}</p>
+                  <p class="card-text"><small class="text-muted">jumlah Produk : {{ $cart->quantity }}</small></p>
+                  <button class="btn btn-success">Detail</button>
+                  <button class="btn btn-warning">Edit</button>
+                  <button class="btn btn-danger">Delete</button>
+                  
+                </div>
+              </div>
+            </div>
           </div>
         @endforeach
     </div>  
 
     <div class="col-md-3 col-sm-12">
-     <div class="card border-0" style="max-width: 18rem;">
-            <div class="card-header">Transaksi</div>
+     <div class="card border-0 shadow-lg">
+            <div class="card-header" style="background-color: white">Transaksi</div>
             <div class="card-body">
                 @foreach ($carts as $c)
                 <div class="row ">
@@ -47,7 +66,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="card-footer">
+            <div class="card-footer" style="background-color: white">
                 <div class="row">
                     <div class="col-7">
                         Total Harga
