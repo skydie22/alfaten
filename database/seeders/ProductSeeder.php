@@ -31,37 +31,7 @@ class ProductSeeder extends Seeder
             'category_id'=> 1,
         ]);
 
-        Product::create([
-            'name'=> 'Chitato',
-            'price'=> 11500,
-            'thumbnail'=> 'chitato.jpg',
-            'desc'=> 'Enak Tau',
-            'category_id'=> 1,
-        ]);
 
-        Product::create([
-            'name'=> 'Doritos',
-            'price'=> 12000,
-            'thumbnail'=> 'doritos.jpg',
-            'desc'=> 'Enak dah Mantap',
-            'category_id'=> 1,
-        ]);
-
-        Product::create([
-            'name'=> 'Chitato',
-            'price'=> 11500,
-            'thumbnail'=> 'chitato.jpg',
-            'desc'=> 'Enak Tau',
-            'category_id'=> 1,
-        ]);
-
-        Product::create([
-            'name'=> 'Doritos',
-            'price'=> 12000,
-            'thumbnail'=> 'doritos.jpg',
-            'desc'=> 'Enak dah Mantap',
-            'category_id'=> 1,
-        ]);
 
         Product::create([
             'name'=> 'Indomie Goreng',

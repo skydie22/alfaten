@@ -93,7 +93,11 @@ class CartsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transaction = Transaction::where('id' , $id)->first();
+        $transaction->update([
+            'quantity' => $request->quantity
+        ]);
+        return redirect()->back()->with('berhasil edit data');
     }
 
     /**
@@ -104,6 +108,9 @@ class CartsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carts = Transaction::find($id);
+        $carts->delete();
+        return redirect()->back()->with(['success' => "Berhasil Delete Data!"]);
+
     }
 }
